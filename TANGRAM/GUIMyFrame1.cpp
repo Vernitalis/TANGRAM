@@ -10,10 +10,24 @@ GUIMyFrame1::GUIMyFrame1(wxWindow* parent)
 	}
 }
 
+void GUIMyFrame1::MyFrame1OnKeyDown(wxKeyEvent& event)
+{
+	if (event.GetKeyCode() == 69)
+		GUIMyFrame1::EPressed = true;
+	if (event.GetKeyCode() == 81)
+		GUIMyFrame1::QPressed = true;
+}
+
+void GUIMyFrame1::MyFrame1OnKeyUp(wxKeyEvent& event)
+{
+	if (event.GetKeyCode() == 69)
+		GUIMyFrame1::EPressed = false;
+	if (event.GetKeyCode() == 81)
+		GUIMyFrame1::QPressed = false;
+}
+
 void GUIMyFrame1::MyFrame1OnUpdateUI(wxUpdateUIEvent& event)
 {
-	
-
 }
 
 void GUIMyFrame1::panelWorkspaceOnKeyDown(wxKeyEvent& event)
@@ -171,17 +185,36 @@ void GUIMyFrame1::buttonNewOnKeyUp(wxKeyEvent& event)
 	if (event.GetKeyCode() == 81)
 		GUIMyFrame1::QPressed = false;
 }
-void GUIMyFrame1::buttonSolveOnButtonClick(wxCommandEvent& event) {
-	showSolution = true;
-	DrawImage();
-}
 
 void GUIMyFrame1::buttonNewOnRightDown(wxMouseEvent& event)
 {
 	// TODO: Implement buttonNewOnRightDown
 }
 
+void GUIMyFrame1::buttonSolveOnButtonClick(wxCommandEvent& event)
+{
+	if (random_number != -1)
+	{
+		showSolution = true;
+		DrawImage();
+	}
+}
 
+void GUIMyFrame1::buttonSolveOnKeyDown(wxKeyEvent& event)
+{
+	if (event.GetKeyCode() == 69)
+		GUIMyFrame1::EPressed = true;
+	if (event.GetKeyCode() == 81)
+		GUIMyFrame1::QPressed = true;
+}
+
+void GUIMyFrame1::buttonSolveOnKeyUp(wxKeyEvent& event)
+{
+	if (event.GetKeyCode() == 69)
+		GUIMyFrame1::EPressed = false;
+	if (event.GetKeyCode() == 81)
+		GUIMyFrame1::QPressed = false;
+}
 
 void GUIMyFrame1::panelTrayOnKeyDown(wxKeyEvent& event)
 {
@@ -220,11 +253,8 @@ void GUIMyFrame1::panelTrayOnUpdateUI(wxUpdateUIEvent& event)
 	DrawTray();
 }
 
-
 bool GUIMyFrame1::isAnyTanHeld = false;
 bool GUIMyFrame1::QPressed = false;
 bool GUIMyFrame1::EPressed = false;
 int Tan::workspaceWidth = 721;
 int Tan::workspaceHeight = 577;
-
-
