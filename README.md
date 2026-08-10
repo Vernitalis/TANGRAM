@@ -2,7 +2,7 @@
 
 Interactive Tangram puzzle application created in C++ with wxWidgets.
 
-This project was co-developed for the **“Basics of Computer Graphics”** course at **AGH University of Krakow**.
+This project was co-developed for the 2024 **“Basics of Computer Graphics”** course at **AGH University of Krakow**.
 
 ## Project overview
 
